@@ -1,0 +1,44 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: lb://AuthorizationService
+          predicates:
+            - Path=/auth/**
+        - id: user-service
+          uri: lb://UserService
+          predicates:
+            - Path=/user/**
+        - id: video-service
+          uri: lb://VideoService
+          predicates:
+            - Path=/video/**
+        - id: image-service
+          uri: lb://ImageService
+          predicates:
+            - Path=/image/**
+        - id: music-service
+          uri: lb://MusicService
+          predicates:
+            - Path=/music/**
+        - id: payment-service
+          uri: lb://PaymentService
+          predicates:
+            - Path=/payment/**
+        - id: censorship-service
+          uri: lb://CensorshipService
+          predicates:
+            - Path=/censorship/**
+        - id: notification-service
+          uri: lb://NotificationService
+          predicates:
+            - Path=/notification/**
+      discovery:
+        locator:
+            enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${DISCOVERY_SERVICE_URI}
