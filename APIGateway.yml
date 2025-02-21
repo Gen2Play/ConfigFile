@@ -41,4 +41,4 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: ${DISCOVERY_SERVICE_URI}
+      defaultZone: ${vault.DISCOVERY_SERVICE_URI}
