@@ -7,37 +7,37 @@ spring:
           predicates:
             - Path=/api/account/**, /api/auth/**, /api/permission/category/**, /api/permission/**, /api/role/**, /api/role-permission/**
           filters:
-            - AuthenticationFilter
+            - name: AuthenticationFilter
         - id: user-service
           uri: lb://UserService
           predicates:
             - Path=/api/user/**
           filters:
-            - AuthenticationFilter
+            - name: AuthenticationFilter
         - id: video-service
           uri: lb://VideoService
           predicates:
             - Path=/api/video/**
           filters:
-            - AuthenticationFilter
+            - name: AuthenticationFilter
         - id: image-service
           uri: lb://ImageService
           predicates:
             - Path=/api/image/**
           filters:
-            - AuthenticationFilter
+            - name: AuthenticationFilter
         - id: music-service
           uri: lb://MusicService
           predicates:
             - Path=/api/music/**
           filters:
-            - AuthenticationFilter
+            - name: AuthenticationFilter
         - id: payment-service
           uri: lb://PaymentService
           predicates:
             - Path=/api/payment/**
           filters:
-            - AuthenticationFilter
+            - name: AuthenticationFilter
         - id: censorship-service
           uri: lb://CensorshipService
           predicates:
