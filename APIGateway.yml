@@ -2,50 +2,64 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: auth-service
+        - id: auth-service-public
           uri: lb://AuthorizationService
           predicates:
-            - Path=/api/account/**, /api/auth/**, /api/permission/category/**, /api/permission/**, /api/role/**, /api/role-permission/**
+            - Path=/api/auth/**
+            
+        - id: auth-service-protected
+          uri: lb://AuthorizationService
+          predicates:
+            - Path=/api/account/**, /api/permission/category/**, /api/permission/**, /api/role/**, /api/role-permission/**
+            - Header=Authorization, Bearer .*
           filters:
             - name: AuthenticationFilter
+
         - id: user-service
           uri: lb://UserService
           predicates:
             - Path=/api/user/**
           filters:
             - name: AuthenticationFilter
+            
         - id: video-service
           uri: lb://VideoService
           predicates:
             - Path=/api/video/**
           filters:
             - name: AuthenticationFilter
+            
         - id: image-service
           uri: lb://ImageService
           predicates:
             - Path=/api/image/**
           filters:
             - name: AuthenticationFilter
+            
         - id: music-service
           uri: lb://MusicService
           predicates:
             - Path=/api/music/**
           filters:
             - name: AuthenticationFilter
+            
         - id: payment-service
           uri: lb://PaymentService
           predicates:
             - Path=/api/payment/**
           filters:
             - name: AuthenticationFilter
+            
         - id: censorship-service
           uri: lb://CensorshipService
           predicates:
             - Path=/api/censorship/**
+            
         - id: notification-service
           uri: lb://NotificationService
           predicates:
             - Path=/api/notification/**
+            
       discovery:
         locator:
             enabled: true
