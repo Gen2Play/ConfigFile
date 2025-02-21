@@ -6,6 +6,7 @@ spring:
           uri: lb://AuthorizationService
           predicates:
             - Path=/api/account/**, /api/auth/**, /api/permission/category/**, /api/permission/**, /api/role/**, /api/role-permission/**
+            - Header=Authorization, Bearer .*
           filters:
             - name: AuthenticationFilter
         - id: user-service
