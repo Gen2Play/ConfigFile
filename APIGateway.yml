@@ -5,45 +5,45 @@ spring:
         - id: auth-service
           uri: lb://AuthorizationService
           predicates:
-            - Path=/auth/**
+            - Path=/api/auth/**
         - id: user-service
           uri: lb://UserService
           predicates:
-            - Path=/user/**
+            - Path=/api/user/**
           filters:
             - AuthenticationFilter
         - id: video-service
           uri: lb://VideoService
           predicates:
-            - Path=/video/**
+            - Path=/api/video/**
           filters:
             - AuthenticationFilter
         - id: image-service
           uri: lb://ImageService
           predicates:
-            - Path=/image/**
+            - Path=/api/image/**
           filters:
             - AuthenticationFilter
         - id: music-service
           uri: lb://MusicService
           predicates:
-            - Path=/music/**
+            - Path=/api/music/**
           filters:
             - AuthenticationFilter
         - id: payment-service
           uri: lb://PaymentService
           predicates:
-            - Path=/payment/**
+            - Path=/api/payment/**
           filters:
             - AuthenticationFilter
         - id: censorship-service
           uri: lb://CensorshipService
           predicates:
-            - Path=/censorship/**
+            - Path=/api/censorship/**
         - id: notification-service
           uri: lb://NotificationService
           predicates:
-            - Path=/notification/**
+            - Path=/api/notification/**
       discovery:
         locator:
             enabled: true
