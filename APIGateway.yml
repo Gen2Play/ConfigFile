@@ -10,22 +10,32 @@ spring:
           uri: lb://UserService
           predicates:
             - Path=/user/**
+          filters:
+            - AuthenticationFilter
         - id: video-service
           uri: lb://VideoService
           predicates:
             - Path=/video/**
+          filters:
+            - AuthenticationFilter
         - id: image-service
           uri: lb://ImageService
           predicates:
             - Path=/image/**
+          filters:
+            - AuthenticationFilter
         - id: music-service
           uri: lb://MusicService
           predicates:
             - Path=/music/**
+          filters:
+            - AuthenticationFilter
         - id: payment-service
           uri: lb://PaymentService
           predicates:
             - Path=/payment/**
+          filters:
+            - AuthenticationFilter
         - id: censorship-service
           uri: lb://CensorshipService
           predicates:
@@ -37,8 +47,12 @@ spring:
       discovery:
         locator:
             enabled: true
+            lower-case-service-id: true
 
 eureka:
   client:
     service-url:
       defaultZone: ${DISCOVERY_SERVICE_URI}
+
+jwt:
+  secret: ${JWT_SECRET_KEY}
