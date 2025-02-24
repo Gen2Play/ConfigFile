@@ -16,47 +16,47 @@ spring:
             - name: AuthenticationFilter
 
         - id: user-service
-          uri: lb://USERSERVICE
+          uri: http://USERSERVICE:8082/
           predicates:
             - Path=/api/user/**
           filters:
             - name: AuthenticationFilter
             
         - id: video-service
-          uri: lb://VIDEOSERVICE
+          uri: http://VIDEOSERVICE:8083/
           predicates:
             - Path=/api/video/**
           filters:
             - name: AuthenticationFilter
             
         - id: image-service
-          uri: lb://IMAGESERVICE
+          uri: http://IMAGESERVICE
           predicates:
             - Path=/api/image/**
           filters:
             - name: AuthenticationFilter
             
         - id: music-service
-          uri: lb://MUSICSERVICE
+          uri: http://MUSICSERVICE
           predicates:
             - Path=/api/music/**
           filters:
             - name: AuthenticationFilter
             
         - id: payment-service
-          uri: lb://PAYMENTSERVICE
+          uri: http://PAYMENTSERVICE:5000/
           predicates:
             - Path=/api/payment/**
           filters:
             - name: AuthenticationFilter
             
         - id: censorship-service
-          uri: lb://CENSORSHIPSERVICE
+          uri: http://CENSORSHIPSERVICE
           predicates:
             - Path=/api/censorship/**
             
         - id: notification-service
-          uri: lb://NOTIFICATIONSERVICE
+          uri: http://NOTIFICATIONSERVICE:5050/
           predicates:
             - Path=/api/notification/**
             
