@@ -3,12 +3,12 @@ spring:
     gateway:
       routes:
         - id: auth-service-public
-          uri: http://c3930cd0ddc9:AuthorizationService:8081/
+          uri: uri: http://AUTHORIZATIONSERVICE:8081/
           predicates:
             - Path=/api/auth/**
             
         - id: auth-service-protected
-          uri: lb://AUTHORIZATIONSERVICE
+          uri: uri: http://AUTHORIZATIONSERVICE:8081/
           predicates:
             - Path=/api/account/**, /api/permission/category/**, /api/permission/**, /api/role/**, /api/role-permission/**
             - Header=Authorization, Bearer .*
