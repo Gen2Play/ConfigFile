@@ -1,1 +1,6 @@
-
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://discovery.vothanhtuyen.id.vn/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
