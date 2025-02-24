@@ -3,7 +3,7 @@ spring:
     gateway:
       routes:
         - id: auth-service-public
-          uri: http://c3930cd0ddc9:8081
+          uri: http://c3930cd0ddc9:AuthorizationService:8081/
           predicates:
             - Path=/api/auth/**
             
