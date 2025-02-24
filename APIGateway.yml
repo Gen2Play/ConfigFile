@@ -30,7 +30,7 @@ spring:
             - name: AuthenticationFilter
             
         - id: image-service
-          uri: lb://imageservice/
+          uri: https://image.vothanhtuyen.id.vn/
           predicates:
             - Path=/api/image/**
           filters:
