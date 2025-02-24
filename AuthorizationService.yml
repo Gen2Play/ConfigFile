@@ -1,6 +1,6 @@
 eureka:
   client:
-    serviceUrl:
-      defaultZone: https://discovery.vothanhtuyen.id.vn/eureka/
-    registerWithEureka: true
-    fetchRegistry: true
+    service-url:
+      defaultZone: ${DISCOVERY_SERVICE_URI}
+    register-with-eureka: true
+    fetch-registry: true
