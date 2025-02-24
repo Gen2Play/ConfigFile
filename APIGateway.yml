@@ -30,7 +30,7 @@ spring:
             - name: AuthenticationFilter
             
         - id: image-service
-          uri: http://ImageService:5220/
+          uri: http://IMAGESERVICE:5220/
           predicates:
             - Path=/api/image/**
           filters:
